@@ -1,0 +1,20 @@
+name: Deployment Ejercicio 2 Laboratorio Cloud
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Dependencies install
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: npm run deploy
+
